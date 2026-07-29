@@ -8,7 +8,7 @@ import type { User, UserPayload, CustomRequest } from "../libs/types.ts";
 // import database
 import { users, enrollments, reset_users } from "../db/db";
 import { success } from "zod";
-import { authenticateToken } from "../middlewares/authenticateToken";
+import { authenticateToken } from "../middlewares/authenticateToken.js";
 import { checkRoleAdmin } from "../middlewares/checkRoleAdmin";
 
 const router = Router();
