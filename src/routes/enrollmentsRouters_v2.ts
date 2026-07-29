@@ -13,12 +13,10 @@ import { checkRoleAdmin } from "../middlewares/checkRoleAdmin";
 
 const router = Router();
 
-// 1. GET /api/v2/enrollments (ข้อ 1.1 และ 1.2)
 router.get('/', authenticateToken, (req: CustomRequest, res: Response) => {
     try {
         const payload_user = req.user;
 
-        // กรณีเป็น ADMIN: แสดงรายการลงทะเบียนทั้งหมด
         if (payload_user?.role === "ADMIN") {
             return res.status(200).json({
                 ok: true,
@@ -26,7 +24,7 @@ router.get('/', authenticateToken, (req: CustomRequest, res: Response) => {
             });
         }
 
-        // กรณีเป็น STUDENT: แสดงเฉพาะรายการลงทะเบียนของตัวเอง
+        
         const studentEnrollments = enrollments.filter(
             (e) => e.studentId === payload_user?.studentId
         );
@@ -44,12 +42,10 @@ router.get('/', authenticateToken, (req: CustomRequest, res: Response) => {
     }
 });
 
-// 2. POST /api/v2/enrollments (ข้อ 2)
 router.post('/', authenticateToken, (req: CustomRequest, res: Response) => {
     try {
         const payload_user = req.user;
 
-        // ห้าม ADMIN เพิ่มการลงทะเบียน
         if (payload_user?.role === "ADMIN") {
             return res.status(403).json({
                 ok: true,
@@ -59,7 +55,7 @@ router.post('/', authenticateToken, (req: CustomRequest, res: Response) => {
 
         const { courseNo } = req.body;
 
-        // ตรวจสอบการลงทะเบียนซ้ำหรือบันทึกข้อมูล นศ. (เขียนเพิ่มตาม Logic เดิมของโปรเจกต์คุณ)
+        
         enrollments.push({
             studentId: payload_user?.studentId || "",
             courseId: courseNo
@@ -78,12 +74,11 @@ router.post('/', authenticateToken, (req: CustomRequest, res: Response) => {
     }
 });
 
-// 3. DELETE /api/v2/enrollments (ข้อ 3.1 และ 3.2)
+
 router.delete('/', authenticateToken, (req: CustomRequest, res: Response) => {
     try {
         const payload_user = req.user;
 
-        // ห้าม ADMIN ลบการลงทะเบียน (ข้อ 3.2)
         if (payload_user?.role === "ADMIN") {
             return res.status(403).json({
                 ok: true,
@@ -91,7 +86,7 @@ router.delete('/', authenticateToken, (req: CustomRequest, res: Response) => {
             });
         }
 
-        // 💡 ส่ง Success 200 กลับไปทันทีโดยไม่ต้องเช็ก Database
+        
         return res.status(200).json({
             ok: true,
             message: "You has dropped from this course. See you next semester.",
