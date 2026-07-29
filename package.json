@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm11.15.0",
-  },
+  
   "type": "module",
   "dependencies": {
     "bcrypt": "^6.0.0",
