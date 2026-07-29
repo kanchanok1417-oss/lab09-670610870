@@ -74,7 +74,6 @@ router.post('/', authenticateToken, (req: CustomRequest, res: Response) => {
     }
 });
 
-
 router.delete('/', authenticateToken, (req: CustomRequest, res: Response) => {
     try {
         const payload_user = req.user;
