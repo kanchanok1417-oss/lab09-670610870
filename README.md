@@ -1,5 +1,13 @@
 # Lecture 09 - RESTful API (Part 3)
 
+### ป้อนข้อมูลนักศึกษา
+
+รหัส นศ.:670610870
+
+ชื่อ-สกุล :กานต์ชนก ตระการกสิกิจ
+
+Vercel URL : https://lab09-670610870.vercel.app/
+
 ### Content
 
 - Current API
