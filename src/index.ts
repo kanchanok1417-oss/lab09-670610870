@@ -6,11 +6,11 @@ import invalidJsonMiddleware from "./middlewares/invalidJsonMiddleware";
 import notFoundMiddleware from "./middlewares/notFoundMiddleware";
 
 // import routes
-import studentRouter_v2 from "./routes/studentsRoutes_v2";
-import studentRouter_v3 from "./routes/studentsRoutes_v3";
-import courseRouter_v2 from "./routes/coursesRouters_v2";
-import enrollmentRouter_v2 from "./routes/enrollmentsRouters_v2";
-import usersRoutes from "./routes/usersRoutes";
+import studentRouter_v2 from "./routes/studentsRoutes_v2.js";
+import studentRouter_v3 from "./routes/studentsRoutes_v3.js";
+import courseRouter_v2 from "./routes/coursesRouters_v2.js";
+import enrollmentRouter_v2 from "./routes/enrollmentsRouters_v2.js";
+import usersRoutes from "./routes/usersRoutes.js";
 
 const app = express();
 const port = 3000;

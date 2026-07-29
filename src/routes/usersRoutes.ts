@@ -4,9 +4,9 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import type { User, CustomRequest } from "../libs/types.ts";
-import { authenticateToken } from "../middlewares/authenticateToken"
+import { authenticateToken } from "../middlewares/authenticateToken.js"
 // import database
-import { users, reset_users } from "../db/db";
+import { users, reset_users } from "../db/db.js";
 
 const router = Router();
 

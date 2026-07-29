@@ -8,7 +8,7 @@ import {
 import type { Student, Course } from "../libs/types.ts";
 
 // import database
-import { courses } from "../db/db.ts";
+import { courses } from "../db/db.ts.ts";
 
 const router = Router();
 

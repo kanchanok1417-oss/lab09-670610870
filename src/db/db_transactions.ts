@@ -1,5 +1,5 @@
 import * as fs from "fs/promises"; // For promise-based fs methods
-import { type Student } from "../libs/types";
+import { type Student } from "../libs/types.js";
 
 import { fileURLToPath } from "url";
 import { dirname } from "path";
