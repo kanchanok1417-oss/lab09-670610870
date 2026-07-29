@@ -23,7 +23,6 @@ router.get('/', authenticateToken, (req: CustomRequest, res: Response) => {
                 enrollments: enrollments,
             });
         }
-
         
         const studentEnrollments = enrollments.filter(
             (e) => e.studentId === payload_user?.studentId
@@ -55,7 +54,6 @@ router.post('/', authenticateToken, (req: CustomRequest, res: Response) => {
 
         const { courseNo } = req.body;
 
-        
         enrollments.push({
             studentId: payload_user?.studentId || "",
             courseId: courseNo
@@ -85,7 +83,6 @@ router.delete('/', authenticateToken, (req: CustomRequest, res: Response) => {
             });
         }
 
-        
         return res.status(200).json({
             ok: true,
             message: "You has dropped from this course. See you next semester.",
