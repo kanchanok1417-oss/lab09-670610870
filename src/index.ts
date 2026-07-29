@@ -2,13 +2,15 @@ import express, { type Request, type Response } from "express";
 
 // import middlewares
 import morgan from "morgan";
-import invalidJsonMiddleware from "./middlewares/invalidJsonMiddleware.ts";
-import notFoundMiddleware from "./middlewares/notFoundMiddleware.ts";
+import invalidJsonMiddleware from "./middlewares/invalidJsonMiddleware";
+import notFoundMiddleware from "./middlewares/notFoundMiddleware";
 
 // import routes
-import studentRouter_v2 from "./routes/studentsRoutes_v2.ts";
-import studentRouter_v3 from "./routes/studentsRoutes_v3.ts";
-import courseRouter_v2 from "./routes/coursesRouters_v2.ts";
+import studentRouter_v2 from "./routes/studentsRoutes_v2";
+import studentRouter_v3 from "./routes/studentsRoutes_v3";
+import courseRouter_v2 from "./routes/coursesRouters_v2";
+import enrollmentRouter_v2 from "./routes/enrollmentsRouters_v2";
+import usersRoutes from "./routes/usersRoutes";
 
 const app = express();
 const port = 3000;
@@ -23,6 +25,7 @@ app.use(morgan("dev"));
 // JSON parser middleware
 app.use(invalidJsonMiddleware);
 
+
 // Endpoints
 app.get("/", (req: Request, res: Response) => {
   res.send("Lecture09 API services");
@@ -32,6 +35,22 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/v2/students", studentRouter_v2);
 app.use("/api/v3/students", studentRouter_v3);
 app.use("/api/v2/courses", courseRouter_v2);
+app.use("/api/v2/enrollments", enrollmentRouter_v2);
+app.use("/api/v2/users", usersRoutes);
+
+app.get("/api/me", (req: Request, res: Response) => {
+  return res.status(200).json({
+    success: true,
+    message: "Student Information",
+    data: {
+      studentId: "670610870",
+      firstName: "Kanchanok",
+      lastName: "Trakankasikit",
+      program: "CPE",
+      section: "001",
+    },
+  });
+});
 
 // endpoint check middleware
 app.use(notFoundMiddleware);
