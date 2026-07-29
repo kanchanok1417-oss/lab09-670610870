@@ -2,8 +2,8 @@ import express, { type Request, type Response } from "express";
 
 // import middlewares
 import morgan from "morgan";
-import invalidJsonMiddleware from "./middlewares/invalidJsonMiddleware";
-import notFoundMiddleware from "./middlewares/notFoundMiddleware";
+import invalidJsonMiddleware from "./middlewares/invalidJsonMiddleware.js";
+import notFoundMiddleware from "./middlewares/notFoundMiddleware.js";
 
 // import routes
 import studentRouter_v2 from "./routes/studentsRoutes_v2.js";
