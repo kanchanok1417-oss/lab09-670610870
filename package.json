@@ -11,7 +11,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm11.15.0",
+  "packageManager": "pnpm@11.15.0",
   "devEngines": {
     "packageManager":  {
       "name": "pnpm",
@@ -19,7 +19,7 @@
       "onFail": "download"
     }
   },
-  
+
   "type": "module",
   "dependencies": {
     "bcrypt": "^6.0.0",
